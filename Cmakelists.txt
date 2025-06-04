@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 3.13)
+
+project(EmployeeManagementSystem)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Adiciona diretórios de include (para encontrar arquivos .h)
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
+
+# Gera lista de arquivos .cpp automaticamente
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+
+# Cria o executável com os arquivos encontrados
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+# Define macro com o caminho para recursos (ajuda no desenvolvimento)
+target_compile_definitions(${PROJECT_NAME} PUBLIC 
+    RESOURCES_PATH="${CMAKE_CURRENT_SOURCE_DIR}/resources/"
+)
+
+# Exemplo: adicionar bibliotecas de terceiros no futuro
+# add_subdirectory(thirdParty/minhaLib)
+# target_link_libraries(${PROJECT_NAME} PRIVATE minhaLib)
+
+# Opcional: para runtime estático no MSVC (Windows)
+if(MSVC)
+    set_property(TARGET ${PROJECT_NAME} PROPERTY
+        MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>$<$<CONFIG:Release>:Release>"
+    )
+endif()
