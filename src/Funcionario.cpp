@@ -1,5 +1,8 @@
 #include "Funcionario.h"
 
+EMSystem::Funcionario::Funcionario(std::string Nome, int Id, float SalarioBase) : Nome(Nome), Id(Id), SalarioBase(SalarioBase)
+{}
+
 //Seterrs
 
 void EMSystem::Funcionario::setSalarioBase(float SalarioBase)

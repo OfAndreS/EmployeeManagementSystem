@@ -14,6 +14,8 @@ namespace EMSystem
 
             float SalarioBase;
 
+            Funcionario(std::string Nome, int Id, float SalarioBase);
+
             // // Seterrs 
 
             void setSalarioBase(float SalarioBase);

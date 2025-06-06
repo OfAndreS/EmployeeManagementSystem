@@ -1,12 +1,7 @@
 #include "FDesenvolvedor.h"
 
-EMSystem::FDesenvolvedor::FDesenvolvedor(std::string Nome, int Id, float SalarioBase, int quantidadeDeProjetos) : quantidadeDeProjetos(quantidadeDeProjetos)
-
-{
-    setSalarioBase(SalarioBase);
-    setNome(Nome);
-    setId(Id);
-}
+EMSystem::FDesenvolvedor::FDesenvolvedor(std::string Nome, int Id, float SalarioBase, int quantidadeDeProjetos) : Funcionario(Nome, Id, SalarioBase), quantidadeDeProjetos(quantidadeDeProjetos)
+{}
 
 float EMSystem::FDesenvolvedor::calcularSalarioFinal()
 {
