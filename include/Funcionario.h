@@ -5,16 +5,18 @@
 
 namespace EMSystem
 {
+    enum class TipoCargo { DESENVOLVEDOR, GERENTE, ANALISTA };
+
     class Funcionario
     {
         protected:
 
             std::string Nome;
             int Id;
-
             float SalarioBase;
+            TipoCargo Cargo;
 
-            Funcionario(std::string Nome, int Id, float SalarioBase);
+            Funcionario(std::string Nome, int Id, float SalarioBase, TipoCargo Cargo);
 
             // // Seterrs 
 
@@ -27,19 +29,21 @@ namespace EMSystem
             // // Métodos
 
             virtual float calcularSalarioFinal() = 0;
-
-        public:
-
+            
+            public:
+            
             // // Geterrs
-
+            
             std::string getNome() const;
-
+            
             int getId() const;
-
+            
             float getSalarioBase() const;
-
+            
+            TipoCargo getTipoCargo() const;
+            
             // // Métodos
-
+            
             virtual void exibirInformacoes();
     };
     

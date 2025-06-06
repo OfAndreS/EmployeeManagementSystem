@@ -1,40 +1,68 @@
 #include "DataFlow.h"
+#include "FDesenvolvedor.h" // Inclui as classes concretas aqui
+// #include "FGerente.h"    // Futuramente, incluiria outras
 
-void EMSystem::DataFlow::startFlow()
-{
-    int couter = 0;
-    std::string userInput;
+#include <memory>
+#include <limits>
+
+// Implementação da função auxiliar do menu
+EMSystem::TipoCargo EMSystem::DataFlow::exibirMenuDeCargos() {
+    int escolha = 0;
+    std::cout << "\n| Selecione o cargo do Funcionario:\n";
+    std::cout << "| 1. Desenvolvedor\n";
+    std::cout << "| 2. Gerente (exemplo)\n";
+    std::cout << "| Escolha: ";
     
-    EMSystem::printHead();
-
-    while (true)
-    {
-        switch (couter)
-        {
-        case 0:
-            if (EMSystem::inputAnStringToEMSystem("| Nome do Funcionario: ", this->Nome)) couter++;
-            break;
-
-        case 1:
-            if (EMSystem::inputAnNumberToEMSystem("| Id do Funcionario: ", this->Id, 'I')) couter++;
-            break;
-
-        case 2:            
-            if (EMSystem::inputAnNumberToEMSystem("| Salario Base do Funcionario: ", this->SalarioBase, 'F')) couter++;
-            break;
-
-        case 3:
-            return;
-        }
+    while (!(std::cin >> escolha) || (escolha != 1 && escolha != 2)) {
+        std::cout << "| Escolha invalida. Tente novamente: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    if (escolha == 1) return TipoCargo::DESENVOLVEDOR;
+    if (escolha == 2) return TipoCargo::GERENTE;
+
+    return TipoCargo::DESENVOLVEDOR; 
 }
 
-void EMSystem::DataFlow::FDesenvolvedorFlow()
-{
-    int qdp;
 
-    EMSystem::inputAnNumberToEMSystem("| Quantidade de projetos do Funcionario: ", qdp, 'I');
-    EMSystem::FDesenvolvedor myDev(this->Nome,this->Id, this->SalarioBase, qdp);
-    myDev.exibirInformacoes();
+std::unique_ptr<EMSystem::Funcionario> EMSystem::DataFlow::criarNovoFuncionario()
+{
+    std::string nome;
+    int id;
+    float salarioBase;
+
+    printHead();
+    std::cout << "|  CADASTRO DE NOVO FUNCIONARIO  |\n" << std::endl;
+    
+    inputAnStringToEMSystem("| Nome: ", nome); 
+    inputAnNumberToEMSystem("| Id: ", id, 'I');
+    inputAnNumberToEMSystem("| Salario Base: ", salarioBase, 'F');
+    
+    TipoCargo cargoEscolhido = exibirMenuDeCargos();
+
+    switch (cargoEscolhido)
+    {
+        case TipoCargo::DESENVOLVEDOR:
+        {
+            int quantidadeDeProjetos;
+            inputAnNumberToEMSystem("| Quantidade de projetos: ", quantidadeDeProjetos, 'I');
+            return std::make_unique<FDesenvolvedor>(nome, id, salarioBase, quantidadeDeProjetos, TipoCargo::DESENVOLVEDOR);
+        }
+
+        case TipoCargo::GERENTE:
+        {
+            // int numeroDeSubordinados;
+            // inputAnNumberToEMSystem("| Numero de Subordinados: ", numeroDeSubordinados, 'I');
+            // return std::make_unique<FGerente>(nome, id, salarioBase, numeroDeSubordinados);
+            std::cout << "Cargo de Gerente ainda nao implementado." << std::endl;
+            return nullptr;
+        }
+
+        default:
+            std::cout << "Cargo invalido selecionado." << std::endl;
+            return nullptr;
+    }
 }

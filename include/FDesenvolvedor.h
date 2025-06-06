@@ -12,16 +12,19 @@ namespace EMSystem
     {
         private:
             int quantidadeDeProjetos;
-
+        
         public:
-            // // Construtor
+        // // Construtor
 
-            FDesenvolvedor(std::string Nome, int Id, float SalarioBase, int quantidadeDeProjetos);
+            FDesenvolvedor(std::string Nome, int Id, float SalarioBase, int quantidadeDeProjetos, TipoCargo cargo);
 
             float calcularSalarioFinal();
 
             void exibirInformacoes();
 
+            int getQuantidadeDeProjetos() const;
+
+            void setQuantidadeDeProjetos(int quantidade);
     };
     
 } // namespace EMSystem

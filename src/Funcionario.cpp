@@ -1,6 +1,6 @@
 #include "Funcionario.h"
 
-EMSystem::Funcionario::Funcionario(std::string Nome, int Id, float SalarioBase) : Nome(Nome), Id(Id), SalarioBase(SalarioBase)
+EMSystem::Funcionario::Funcionario(std::string Nome, int Id, float SalarioBase, TipoCargo Cargo) : Nome(Nome), Id(Id), SalarioBase(SalarioBase), Cargo(Cargo)
 {}
 
 //Seterrs
@@ -35,6 +35,11 @@ int EMSystem::Funcionario::getId() const
 float EMSystem::Funcionario::getSalarioBase() const
 {
     return this->SalarioBase;
+}
+
+EMSystem::TipoCargo EMSystem::Funcionario::getTipoCargo() const
+{
+    return this->Cargo;
 }
 
 // // Métodos

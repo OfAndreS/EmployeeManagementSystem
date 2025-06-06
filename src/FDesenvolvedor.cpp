@@ -1,6 +1,6 @@
 #include "FDesenvolvedor.h"
 
-EMSystem::FDesenvolvedor::FDesenvolvedor(std::string Nome, int Id, float SalarioBase, int quantidadeDeProjetos) : Funcionario(Nome, Id, SalarioBase), quantidadeDeProjetos(quantidadeDeProjetos)
+EMSystem::FDesenvolvedor::FDesenvolvedor(std::string Nome, int Id, float SalarioBase, int quantidadeDeProjetos, TipoCargo Cargo) : Funcionario(Nome, Id, SalarioBase, Cargo), quantidadeDeProjetos(quantidadeDeProjetos)
 {}
 
 float EMSystem::FDesenvolvedor::calcularSalarioFinal()
@@ -17,4 +17,14 @@ void EMSystem::FDesenvolvedor::exibirInformacoes()
     std::cout << "| DEV INFO: \n|\n| Nome: " << getNome() << "\n| ID: " << getId() << "\n| Salario Base: " << getSalarioBase() << " R$ " << "\n| Salario Final: " << calcularSalarioFinal() << " R$ " << std::endl;
     
     EMSystem::printHead();
+}
+
+int EMSystem::FDesenvolvedor::getQuantidadeDeProjetos() const
+{
+    return this->quantidadeDeProjetos;
+}
+
+void EMSystem::FDesenvolvedor::setQuantidadeDeProjetos(int quantidade)
+{
+    this->quantidadeDeProjetos = quantidade;
 }

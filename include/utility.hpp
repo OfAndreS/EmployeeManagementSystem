@@ -11,10 +11,17 @@ namespace EMSystem
     {
         std::cout << "\n\n|  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *\n\n" << std::endl;
     }
+
+    inline void printMenu()
+    {
+        std::cout << "| MENU \n|\n ( 1 ) - Criar novo Funcionario \n| ( 2 ) - Deletar Funcionario \n| ( 3 ) - Exibir todos os funcionarios \n| ( 0 ) - Encerrar \n"; 
+    }
     
     bool itIsAnDigit(const std::string& tipo);
 
     bool inputAnStringToEMSystem(const std::string& prompt, std::string& value);
+
+    std::string inputAnStringToEMSystem(const std::string& prompt);
 
     template<typename T>
     bool inputAnNumberToEMSystem(const std::string& prompt, T& value, char type) 
@@ -41,7 +48,6 @@ namespace EMSystem
             else 
             {
                 std::cout << "\n| ERROR: Entrada invalida. Por favor, insira apenas numeros.\n" << std::endl;
-                break;
             }
         }
     }

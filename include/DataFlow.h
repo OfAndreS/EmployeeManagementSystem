@@ -2,26 +2,23 @@
 
 #include <iostream>
 #include <string>
+#include <memory>
 
-#include "FDesenvolvedor.h"
-#include "Funcionario.h"
-#include "utility.hpp"
+#include "Funcionario.h" // Apenas a base é necessária aqui
+// Não precisa mais de FDesenvolvedor.h
 
 namespace EMSystem
 {
+
     class DataFlow
     {
-        private:
-            float SalarioBase;
-            std::string Nome;
-            int Id;
-        
-        public:
+    public:
+        // Função que retorna um ponteiro para a classe BASE
+        std::unique_ptr<Funcionario> criarNovoFuncionario();
 
-            void startFlow();
-
-            void FDesenvolvedorFlow();
-
+    private:
+        // Função auxiliar para mostrar o menu e obter a escolha do usuário
+        TipoCargo exibirMenuDeCargos();
     };
     
-} 
+}

@@ -17,7 +17,7 @@
     {
         std::cout << prompt;
 
-        std::string buffer;
+        std::string buffer = "";
         if (std::getline(std::cin, buffer)) 
         {
             
@@ -32,3 +32,4 @@
         
         return false; 
     }
+
