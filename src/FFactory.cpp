@@ -1,10 +1,10 @@
 #include "FFactory.h"
 
-EMSystem::TipoCargo EMSystem::DataFlow::exibirMenuDeCargos() {
+EMSystem::TipoCargo EMSystem::FFactory::exibirMenuDeCargos() {
     int escolha = 0;
     std::cout << "\n| Selecione o cargo do Funcionario:\n";
-    std::cout << "| 1. Desenvolvedor\n";
-    std::cout << "| 2. Gerente (exemplo)\n";
+    std::cout << "| ( 1 ) - Desenvolvedor\n";
+    std::cout << "| ( 2 ) - Gerente (exemplo)\n";
     std::cout << "| Escolha: ";
     
     while (!(std::cin >> escolha) || (escolha != 1 && escolha != 2)) {
@@ -21,8 +21,7 @@ EMSystem::TipoCargo EMSystem::DataFlow::exibirMenuDeCargos() {
     return TipoCargo::DESENVOLVEDOR; 
 }
 
-
-std::unique_ptr<EMSystem::Funcionario> EMSystem::DataFlow::criarNovoFuncionario()
+std::unique_ptr<EMSystem::Funcionario> EMSystem::FFactory::criarNovoFuncionario()
 {
     std::string nome;
     int id;
@@ -58,5 +57,16 @@ std::unique_ptr<EMSystem::Funcionario> EMSystem::DataFlow::criarNovoFuncionario(
         default:
             std::cout << "Cargo invalido selecionado." << std::endl;
             return nullptr;
+    }
+}
+
+void EMSystem::FFactory::showAllEmployeers(std::vector<std::unique_ptr<EMSystem::Funcionario>>& showEmployeers)
+{
+    int couter = 0;
+    for (const auto& myF : showEmployeers)
+    {
+        std::cout << " ( " << couter << " ) - ";
+        myF->exibirInformacoes();
+        couter++;
     }
 }

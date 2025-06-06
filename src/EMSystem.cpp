@@ -12,7 +12,7 @@ void startMenu()
 {
 	std::vector<std::unique_ptr<EMSystem::Funcionario>> myEmployees;
 	std::unique_ptr<EMSystem::Funcionario> novoFuncionario; 
-	EMSystem::DataFlow myDataFlow;
+	EMSystem::FFactory myFactory;
 	std::string userInput = "";
 	
 	while (true)
@@ -25,11 +25,21 @@ void startMenu()
 			switch (userInput.at(0))
 			{
 			case '1':
-				novoFuncionario = myDataFlow.criarNovoFuncionario();
-				novoFuncionario->exibirInformacoes();
-				myEmployees.push_back(std::move(novoFuncionario));
-				break;
 
+				novoFuncionario = myFactory.criarNovoFuncionario();
+
+				EMSystem::printHead();
+				novoFuncionario->exibirInformacoes();
+
+				myEmployees.push_back(std::move(novoFuncionario));
+
+				break;
+			case '3':
+			
+				EMSystem::printHead();
+				myFactory.showAllEmployeers(myEmployees);
+
+				break;
 			case '0':
 				std::cout << "\n| Finalizando... " << std::endl;
 				return;

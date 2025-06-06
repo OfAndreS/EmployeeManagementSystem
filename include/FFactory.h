@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 #include <string>
 #include <memory>
 
@@ -14,7 +15,7 @@
 namespace EMSystem
 {
 
-    class DataFlow
+    class FFactory
     {
     private:
 
@@ -23,6 +24,8 @@ namespace EMSystem
     public:
         // Função que retorna um ponteiro para a classe BASE
         std::unique_ptr<Funcionario> criarNovoFuncionario();
+
+        void showAllEmployeers(std::vector<std::unique_ptr<EMSystem::Funcionario>>& deleteEmployees);
 
     };
     
