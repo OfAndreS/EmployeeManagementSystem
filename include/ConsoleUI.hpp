@@ -6,6 +6,15 @@
 
 namespace EMSystem
 {
+    // // Declaração
+
+    bool itIsAnDigit(const std::string& tipo);
+
+    bool inputAnStringToEMSystem(const std::string& prompt, std::string& value);
+
+
+    // // Implementação
+
 
     inline void printHead()
     {
@@ -14,14 +23,8 @@ namespace EMSystem
 
     inline void printMenu()
     {
-        std::cout << "| MENU \n|\n ( 1 ) - Criar novo Funcionario \n| ( 2 ) - Deletar Funcionario \n| ( 3 ) - Exibir todos os funcionarios \n| ( 0 ) - Encerrar \n"; 
+        std::cout << "| MENU \n|\n| ( 1 ) - Criar novo Funcionario \n| ( 2 ) - Deletar Funcionario \n| ( 3 ) - Exibir todos os funcionarios \n| ( 0 ) - Encerrar \n"; 
     }
-    
-    bool itIsAnDigit(const std::string& tipo);
-
-    bool inputAnStringToEMSystem(const std::string& prompt, std::string& value);
-
-    std::string inputAnStringToEMSystem(const std::string& prompt);
 
     template<typename T>
     bool inputAnNumberToEMSystem(const std::string& prompt, T& value, char type) 
@@ -32,6 +35,8 @@ namespace EMSystem
         {
             std::cout << prompt;
             std::cin >> userInput;
+
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
             if (itIsAnDigit(userInput)) 
             {

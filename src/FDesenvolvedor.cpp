@@ -15,8 +15,7 @@ void EMSystem::FDesenvolvedor::exibirInformacoes()
     EMSystem::printHead();
 
     std::cout << "| DEV INFO: \n|\n| Nome: " << getNome() << "\n| ID: " << getId() << "\n| Salario Base: " << getSalarioBase() << " R$ " << "\n| Salario Final: " << calcularSalarioFinal() << " R$ " << std::endl;
-    
-    EMSystem::printHead();
+
 }
 
 int EMSystem::FDesenvolvedor::getQuantidadeDeProjetos() const

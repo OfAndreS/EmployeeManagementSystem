@@ -1,4 +1,4 @@
-    #include "utility.hpp"
+    #include "ConsoleUI.hpp"
 
     bool EMSystem::itIsAnDigit(const std::string& tipo)
     {
@@ -17,15 +17,13 @@
     {
         std::cout << prompt;
 
-        std::string buffer = "";
+        std::string buffer;
         if (std::getline(std::cin, buffer)) 
         {
-            
             if (buffer.empty()) {
                 std::cout << "\n| AVISO: A entrada nao pode ser vazia.\n" << std::endl;
                 return false; // Considera entrada vazia como falha.
             }
-
             value = buffer;
             return true; 
         }

@@ -1,10 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <memory>
-#include "DataFlow.h"
+
+#include "ConsoleUI.hpp"
+
+#include "FFactory.h"
 #include "Funcionario.h"
 #include "FDesenvolvedor.h" // Precisa incluir o header da classe derivada aqui!
-#include "utility.hpp"
 
 void startMenu()
 {
@@ -29,7 +31,7 @@ void startMenu()
 				break;
 
 			case '0':
-				std::cout << "| Finalizando... " << std::endl;
+				std::cout << "\n| Finalizando... " << std::endl;
 				return;
 
 			default:
