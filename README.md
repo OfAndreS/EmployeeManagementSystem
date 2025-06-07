@@ -2,6 +2,8 @@
 
 O **Employee Management System** é um sistema de console para o gerenciamento de funcionários, implementado em C++. O projeto utiliza princípios de Programação Orientada a Objetos (POO) para criar, deletar e visualizar informações de diferentes tipos de funcionários, como Desenvolvedores, Gerentes e Estagiários. O sistema é flexível, escalável e fácil de usar, com uma interface de linha de comando clara e interativa.
 
+#### Vídeo de apresentação: https://www.youtube.com/watch?v=6-CMVo6YGoo
+
 ## Funcionalidades
 
 **Criação de Funcionários**: 
