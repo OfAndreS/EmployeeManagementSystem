@@ -5,7 +5,7 @@
 
 namespace EMSystem
 {
-    enum class TipoCargo { DESENVOLVEDOR, GERENTE, ANALISTA };
+    enum class TipoCargo { DESENVOLVEDOR, GERENTE, ESTAGIARIO };
 
     class Funcionario
     {

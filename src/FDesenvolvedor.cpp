@@ -12,7 +12,7 @@ float EMSystem::FDesenvolvedor::calcularSalarioFinal()
 
 void EMSystem::FDesenvolvedor::exibirInformacoes()
 {
-    std::cout << "| Cargo: Desenvolvedor | Nome: " << getNome() << " | ID: " << getId() << " | Salario Base: " << getSalarioBase() << "| Quantidade de projetos: " << getQuantidadeDeProjetos() << " | Salario Final: " << calcularSalarioFinal() << std::endl;   
+    std::cout << "| Cargo: Desenvolvedor | Nome: " << getNome() << " | ID: " << getId() << " | Salario Base: " << getSalarioBase() << " R$ " << "| Quantidade de projetos: " << getQuantidadeDeProjetos() << " | Salario Final: " << calcularSalarioFinal() << " R$ " << std::endl;   
 }
 
 int EMSystem::FDesenvolvedor::getQuantidadeDeProjetos() const

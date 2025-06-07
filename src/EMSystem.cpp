@@ -6,7 +6,9 @@
 
 #include "FFactory.h"
 #include "Funcionario.h"
-#include "FDesenvolvedor.h" // Precisa incluir o header da classe derivada aqui!
+#include "FDesenvolvedor.h" 
+#include "FGerente.h"
+#include "FEstagiario.h"
 
 void startMenu()
 {
@@ -14,6 +16,10 @@ void startMenu()
 	std::unique_ptr<EMSystem::Funcionario> novoFuncionario; 
 	EMSystem::FFactory myFactory;
 	std::string userInput = "";
+
+	EMSystem::printHead();
+
+	EMSystem::printDollarLogo();
 	
 	while (true)
 	{
@@ -34,8 +40,14 @@ void startMenu()
 				myEmployees.push_back(std::move(novoFuncionario));
 
 				break;
+			case '2':
+
+				EMSystem::printHead();
+				myFactory.deleteOneEmployeer(myEmployees);
+
+				break;
 			case '3':
-			
+
 				EMSystem::printHead();
 				myFactory.showAllEmployeers(myEmployees);
 
